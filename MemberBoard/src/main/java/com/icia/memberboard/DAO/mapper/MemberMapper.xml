@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Member"> 
+ 
+	<insert id="memberjoin" parameterType="member">
+	INSERT INTO MEMBERTABLE(MID, MPS, MNAME, MBIRTH, MEMAIL, MADDRESS, MPHONE, MPROFILE) VALUES(#{mid},#{mps},#{mname},#{mbirth},#{memail},#{maddress},#{mphone},#{mprofile})
+	</insert>
+	
+	<insert id="kakaomemberjoin" parameterType="member">
+	INSERT INTO MEMBERTABLE(MID, MPS, MNAME, MBIRTH, MEMAIL, MADDRESS, MPHONE, MPROFILE,MKAKAOID) VALUES(#{mid},#{mps},#{mname},#{mphone},#{memail},#{mbirth},#{mkakaoid})
+	</insert>
+	
+	<insert id="navermemberjoin" parameterType="member">
+	INSERT INTO MEMBERTABLE(MID, MPS, MNAME, MBIRTH, MEMAIL, MADDRESS, MPHONE, MPROFILE, MNAVERID) VALUES(#{mid},#{mps},#{mname},#{mphone},#{memail},#{mbirth},#{mnaverid})
+	</insert>
+	
+	<select id="idCheck" parameterType="String" resultType="String">
+	SELECT MID FROM MEMBERTABLE WHERE MID=#{mid}
+	</select>
+	
+	<select id="memberlogin" parameterType="String" resultType="String">
+	SELECT MID FROM MEMBERTABLE WHERE MID=#{mid} AND MPS=#{mps}
+	</select>
+	
+	<select id="memberlist" resultType="member">
+	SELECT * FROM MEMBERTABLE
+	</select>
+	
+	<select id="memberview" parameterType="String" resultType="member">
+	SELECT * FROM MEMBERTABLE WHERE MID=#{mid}
+	</select>
+	
+	<delete id="memberdelete" parameterType="String">
+	DELETE FROM MEMBERTABLE WHERE MID=#{mid}
+	</delete>
+	
+	<update id="membermodify" parameterType="member">
+	UPDATE MEMBERTABLE SET MPS=#{mps}, MNAME=#{mname}, MBIRTH=#{mbirth}, MEMAIL=#{memail}, MADDRESS=#{maddress}, MPHONE=#{mphone}, MPROFILE=#{mprofile} WHERE MID=#{mid}
+	</update>
+	
+	
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
