@@ -46,6 +46,6 @@ public class MemberDAO {
 		return sql.update("Member.membermodify", member);
 	}
 
-	
+
 	
 }

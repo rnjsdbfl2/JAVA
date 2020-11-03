@@ -75,7 +75,6 @@ public class MemberService {
 		return mav;
 	}
 
-
 	public ModelAndView memberlist() {
 		mav = new ModelAndView();
 		List<MemberDTO> memberList = mDAO.memberlist();

@@ -17,6 +17,7 @@ import com.icia.memberboard.DAO.BoardDAO;
 import com.icia.memberboard.DTO.BoardDTO;
 import com.icia.memberboard.DTO.MemberDTO;
 import com.icia.memberboard.Service.MemberService;
+import org.jsoup.*;
 
 @Controller
 public class MemberController {
@@ -53,6 +54,17 @@ public class MemberController {
 	public String loginfrom() {
 		return "memberv/MemberLogin";
 	}
+	// home에서 crawling페이지로 이동
+	@RequestMapping(value="/goParser")
+	public String gocrawling() {
+		return "Parser";		
+	}
+	// column추가
+	@RequestMapping(value="addcolumn")
+	public void addcolumn() {
+	}
+	
+	
 	// ID링크 누르면 MyPage로 이동하며 내가 쓴 글 목록 출력
 	@RequestMapping(value="/gomypage")
 	public ModelAndView gomypage() {
